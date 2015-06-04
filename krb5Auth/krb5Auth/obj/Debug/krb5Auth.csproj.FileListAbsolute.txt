@@ -8,3 +8,7 @@ C:\Users\Administrator\Desktop\pgina-master\Plugins\Contrib\krb5Auth\krb5Auth\ob
 C:\Users\Administrator\Desktop\pgina-master\Plugins\Contrib\krb5Auth\krb5Auth\obj\Debug\krb5Auth.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\pgina-master\Plugins\Contrib\krb5Auth\krb5Auth\obj\Debug\pGina.Plugin.krb5Auth.dll
 C:\Users\Administrator\Desktop\pgina-master\Plugins\Contrib\krb5Auth\krb5Auth\obj\Debug\pGina.Plugin.krb5Auth.pdb
+C:\Users\Administrator\Desktop\pgina-master\krb5Auth\pGina-Kerberos-Authentication\krb5Auth\krb5Auth\obj\Debug\pGina.Plugin.krb5Auth.Configuration.resources
+C:\Users\Administrator\Desktop\pgina-master\krb5Auth\pGina-Kerberos-Authentication\krb5Auth\krb5Auth\obj\Debug\krb5Auth.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\pgina-master\krb5Auth\pGina-Kerberos-Authentication\krb5Auth\krb5Auth\obj\Debug\pGina.Plugin.krb5Auth.dll
+C:\Users\Administrator\Desktop\pgina-master\krb5Auth\pGina-Kerberos-Authentication\krb5Auth\krb5Auth\obj\Debug\pGina.Plugin.krb5Auth.pdb

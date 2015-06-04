@@ -28,7 +28,8 @@ namespace krb5Plugin
             pGina.Plugin.krb5Auth.Configuration myDialog = new pGina.Plugin.krb5Auth.Configuration();
             myDialog.ShowDialog();
 
-            Settings.Realm = myDialog.realm;
+            //Settings.Realm = myDialog.realm;
+            m_settings.SetDefault("Realm", myDialog.realm);
         }
 
         public string Name
