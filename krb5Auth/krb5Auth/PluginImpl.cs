@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using System.Reflection;
+using System.IO;
+using System.Security.Cryptography;
 
 namespace krb5Plugin
 {
@@ -12,7 +15,7 @@ namespace krb5Plugin
         private static dynamic m_settings;
         internal static dynamic Settings { get { return m_settings; } }
         private static readonly Guid m_uuid = new Guid("16E22B15-4116-4FA4-9BB2-57D54BF61A43");
-
+                
         public PluginImpl()
         {
             m_logger = log4net.LogManager.GetLogger("pGina.Plugin.krb5Plugin");
@@ -29,7 +32,8 @@ namespace krb5Plugin
             myDialog.ShowDialog();
 
             //Settings.Realm = myDialog.realm;
-            m_settings.SetDefault("Realm", myDialog.realm);
+            //m_settings.SetDefault("Realm", myDialog.realm);
+            m_logger.InfoFormat("Realm after config: {0}", myDialog.realm);
         }
 
         public string Name
@@ -57,27 +61,35 @@ namespace krb5Plugin
 
         public void Starting() { }
         public void Stopping() { }
-
+                
         /**
          * P/Invoke for the unmanaged function that will deal with the actual athentication of a user through Kerberos
-         * */
+         * */        
         [DllImport("authdll.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern int auth_user(string u, string p, string d, string t);
 
-
+        
         public pGina.Shared.Types.BooleanResult AuthenticateUser(pGina.Shared.Types.SessionProperties properties)
         {
             pGina.Shared.Types.UserInformation userInfo = properties.GetTrackedSingle<pGina.Shared.Types.UserInformation>();
 
             //m_logger.InfoFormat("Domain before: {0} in {1}", userInfo.Domain, userInfo.Groups);
-            userInfo.Domain = Settings.Realm;
+            userInfo.Domain = m_settings.Realm;
             m_logger.InfoFormat("Domain after: {0} in {1}", userInfo.Domain, userInfo.Groups);
 
             /**
              * Call unmanaged DLL that will deal with Microsofts AcquireCredentialHandle() and InitializeSecurityContext() calls after creating a new SEC_WIN_AUTH_IDENTITY structure
              * from the supplied user name, password, and domain.  The return result will indicate either success or various kerberos error messages.
              * */
-            int r = auth_user(userInfo.Username, userInfo.Password, userInfo.Domain, "krbtgt/" + userInfo.Domain.ToUpper());
+            int r = -1;
+            try
+            {
+                r = auth_user(userInfo.Username, userInfo.Password, userInfo.Domain, "krbtgt/" + userInfo.Domain.ToUpper());
+            }
+            catch (Exception e)
+            {
+                m_logger.InfoFormat("Exception: {0}", e.Message);
+            }
 
             //userInfo.Domain = "";
             switch (r)

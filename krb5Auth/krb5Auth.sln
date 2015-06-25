@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "krb5Auth", "krb5Auth\krb5Auth.csproj", "{89343056-84D0-4146-882D-47A1F36223A6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "authdll", "D:\u0270473\Documents\Visual Studio 2010\Projects\AuthTester\authdll\authdll.vcxproj", "{09615068-1A0D-4DC1-9209-251E362A0E5A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "authdll", "authdll\authdll.vcxproj", "{09615068-1A0D-4DC1-9209-251E362A0E5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

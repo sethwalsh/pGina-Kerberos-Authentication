@@ -21,6 +21,9 @@ namespace pGina.Plugin.krb5Auth
         private void save_Click(object sender, EventArgs e)
         {
             realm = rText.Text;
+            Guid m_uuid = new Guid("16E22B15-4116-4FA4-9BB2-57D54BF61A43");
+            dynamic m_settings = new pGina.Shared.Settings.pGinaDynamicSettings(m_uuid);
+            m_settings.Realm = realm;
             this.Close();
         }
 

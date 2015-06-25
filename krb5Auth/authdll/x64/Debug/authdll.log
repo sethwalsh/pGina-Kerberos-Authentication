@@ -1,0 +1,9 @@
+﻿Build started 6/25/2015 11:27:56 AM.
+     1>Project "C:\Users\Administrator\Desktop\pgina-master\krb5Auth\pGina-Kerberos-Authentication\krb5Auth\authdll\authdll.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Debug\authdll.lastbuildstate".
+     1>Done Building Project "C:\Users\Administrator\Desktop\pgina-master\krb5Auth\pGina-Kerberos-Authentication\krb5Auth\authdll\authdll.vcxproj" (clean target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.01

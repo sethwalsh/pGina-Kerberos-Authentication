@@ -32,13 +32,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Abstractions">
-      <HintPath>..\..\..\SDK\Abstractions.dll</HintPath>
+      <HintPath>..\..\..\..\Plugins\SDK\Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\SDK\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\Plugins\SDK\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="pGina.Core">
+      <HintPath>..\..\..\..\Plugins\SDK\pGina.Core.dll</HintPath>
     </Reference>
     <Reference Include="pGina.Shared">
-      <HintPath>..\..\..\SDK\pGina.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\Plugins\SDK\pGina.Shared.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,6 +67,11 @@
     <EmbeddedResource Include="Configuration.resx">
       <DependentUpon>Configuration.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="authdll.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
