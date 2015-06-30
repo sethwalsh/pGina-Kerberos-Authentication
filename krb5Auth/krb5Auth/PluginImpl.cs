@@ -1,4 +1,15 @@
-﻿using System;
+﻿/**
+ * krbAuth pGina authentication plugin - An authentication for the pGina system that allows for authentication against a kerberos realm.
+ * This plugin requires a secondary dll to function properly.  In order to work around some of the legacy kerberos authentication functions within
+ * Windows that were not adequately ported over to the C# language from C++, it was necessary for me to write a second DLL to deal with those.  
+ * It proved to be more trouble than it was worth trying to get the memory correct when converting the InitializeSecurityContext() and
+ * AcquireCredentialsHandle() functions to C# so I kept them in unmanaged code and simply make a call to them passing in the user name,
+ * password, krbtgt, and domain.
+ * 
+ * 
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,11 +45,7 @@ namespace krb5Plugin
         {
             pGina.Plugin.krb5Auth.Configuration myDialog = new pGina.Plugin.krb5Auth.Configuration();
             myDialog.ShowDialog();
-
-            //Settings.Realm = myDialog.realm;
-            //m_settings.SetDefault("Realm", myDialog.realm);
-            //groups = myDialog.groups;
-            //addLocal = myDialog.addLocal;
+            
             m_logger.InfoFormat("Realm after config: {0}", myDialog.realm);
         }
 
@@ -155,7 +162,8 @@ namespace krb5Plugin
                     NewUser.Invoke("Put", new object[] { "Description", "Local User from pGina KRB5" });
                     NewUser.CommitChanges();
 
-                    groups = new List<string>(m_settings.LocalGroups);
+                    string[] temp = m_settings.LocalGroups;
+                    groups = new List<string>(temp);
 
                     if (groups.Count > 0)
                     {
