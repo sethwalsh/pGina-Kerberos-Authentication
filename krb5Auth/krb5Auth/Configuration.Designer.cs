@@ -33,14 +33,10 @@
             this.save = new System.Windows.Forms.Button();
             this.description = new System.Windows.Forms.Label();
             this.cancel = new System.Windows.Forms.Button();
-            this.createLocalAccount = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.localUserGroups = new System.Windows.Forms.CheckedListBox();
-            this.currentRealmLabel = new System.Windows.Forms.Label();
             this.currentRealmText = new System.Windows.Forms.Label();
+            this.currentRealmLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +71,8 @@
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(251, 38);
             this.description.TabIndex = 3;
-            this.description.Text = "( Enter the target Kerberos realm name ex: REALM.UTAH.EDU )";
+            this.description.Text = "The realm is the fully qualified target domain name that you will be authenticati" +
+    "ng against.";
             // 
             // cancel
             // 
@@ -86,17 +83,6 @@
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
-            // 
-            // createLocalAccount
-            // 
-            this.createLocalAccount.AutoSize = true;
-            this.createLocalAccount.Location = new System.Drawing.Point(9, 19);
-            this.createLocalAccount.Name = "createLocalAccount";
-            this.createLocalAccount.Size = new System.Drawing.Size(129, 17);
-            this.createLocalAccount.TabIndex = 5;
-            this.createLocalAccount.Text = "Create Local Account";
-            this.createLocalAccount.UseVisualStyleBackColor = true;
-            this.createLocalAccount.CheckedChanged += new System.EventHandler(this.createLocalAccount_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -112,24 +98,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kerberos Settings";
             // 
-            // groupBox2
+            // currentRealmText
             // 
-            this.groupBox2.Controls.Add(this.localUserGroups);
-            this.groupBox2.Controls.Add(this.createLocalAccount);
-            this.groupBox2.Location = new System.Drawing.Point(12, 146);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(309, 153);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Local User Account";
-            // 
-            // localUserGroups
-            // 
-            this.localUserGroups.FormattingEnabled = true;
-            this.localUserGroups.Location = new System.Drawing.Point(6, 42);
-            this.localUserGroups.Name = "localUserGroups";
-            this.localUserGroups.Size = new System.Drawing.Size(294, 94);
-            this.localUserGroups.TabIndex = 6;
+            this.currentRealmText.AutoSize = true;
+            this.currentRealmText.Location = new System.Drawing.Point(93, 99);
+            this.currentRealmText.Name = "currentRealmText";
+            this.currentRealmText.Size = new System.Drawing.Size(35, 13);
+            this.currentRealmText.TabIndex = 5;
+            this.currentRealmText.Text = "label3";
             // 
             // currentRealmLabel
             // 
@@ -140,21 +116,11 @@
             this.currentRealmLabel.TabIndex = 4;
             this.currentRealmLabel.Text = "Current Realm:";
             // 
-            // currentRealmText
-            // 
-            this.currentRealmText.AutoSize = true;
-            this.currentRealmText.Location = new System.Drawing.Point(93, 99);
-            this.currentRealmText.Name = "currentRealmText";
-            this.currentRealmText.Size = new System.Drawing.Size(35, 13);
-            this.currentRealmText.TabIndex = 5;
-            this.currentRealmText.Text = "label3";
-            // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 340);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.save);
@@ -162,8 +128,6 @@
             this.Text = "KRB5 Realm Configuration";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -175,10 +139,7 @@
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Label description;
         private System.Windows.Forms.Button cancel;
-        private System.Windows.Forms.CheckBox createLocalAccount;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckedListBox localUserGroups;
         private System.Windows.Forms.Label currentRealmText;
         private System.Windows.Forms.Label currentRealmLabel;
     }
