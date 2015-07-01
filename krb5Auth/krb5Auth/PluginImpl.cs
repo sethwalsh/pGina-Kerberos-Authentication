@@ -84,7 +84,8 @@ namespace krb5Plugin
 
             // Get the Kerberos Realm we are authenticating against from the registry
             string krbRealm = m_settings.Realm;
-            
+            //m_logger.InfoFormat("Kerberos Target Realm: {0}", krbRealm);
+
             /**
              * Call unmanaged DLL that will deal with Microsofts AcquireCredentialHandle() and InitializeSecurityContext() calls after creating a new SEC_WIN_AUTH_IDENTITY structure
              * from the supplied user name, password, and domain.  The return result will indicate either success or various kerberos error messages.
@@ -92,7 +93,7 @@ namespace krb5Plugin
             int r = -1;
             try
             {
-                r = auth_user(userInfo.Username, userInfo.Password, krbRealm, "krbtgt/" + userInfo.Domain.ToUpper());
+                r = auth_user(userInfo.Username, userInfo.Password, krbRealm, "krbtgt/" + krbRealm.ToUpper());
             }
             catch (Exception e)
             {
