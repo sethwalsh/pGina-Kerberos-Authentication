@@ -19,5 +19,6 @@ is essential to functioning, and everyones realm will of course be different.
 That should be it for it to function, logging is enabled in the plugin through pGina's log4net functionality.
 
 If any questions feel free to drop me a line on here.
+**edit**
 
 Seth Walsh
